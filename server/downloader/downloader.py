@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlsplit
 
 
-BASE_URL = ''
+BASE_URL = 'https://marucha.wordpress.com/2020/04/01/walczac-z-epidemia-czyli-na-progu-apokalipsy/'
 
 DEST_DIR = 'downloads/'
 
