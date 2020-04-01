@@ -1,4 +1,5 @@
 # server
+/__pycache/
 .idea/*
 db.sqlite3
 env
