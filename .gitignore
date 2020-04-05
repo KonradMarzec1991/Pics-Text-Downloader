@@ -1,6 +1,15 @@
-# server
-__pycache__/
+/__pycache__/
+/server/__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+build/
+dist/
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+.idea/*
 .idea/
 db.sqlite3
-env
-pictures
+

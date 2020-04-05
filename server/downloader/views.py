@@ -1,14 +1,20 @@
 from django.http import HttpResponse
 from .models import Picture
+import requests
+from bs4 import BeautifulSoup
+
+
+BASE_URL = ''
 
 
 def home(request):
-    url = "https://upload.wikimedia.org/wikipedia/commons/0/0e/Felis_silvestris_silvestris.jpg"
+    response = request.get(BASE_URL)
+    soup = BeautifulSoup(response.text, 'html.parser')
 
-    pic = Picture(
-        base_url='https://upload.wikimedia.org/wikipedia/',
-        image_url=url
-    )
-    pic.save()
+    img_tags = soup.find_all('img')
+
+    for item in img_tags:
+        url = item['src']
+
 
     return HttpResponse('working!')
