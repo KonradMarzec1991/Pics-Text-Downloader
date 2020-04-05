@@ -9,11 +9,11 @@ class Picture(models.Model):
     image_url = models.URLField(max_length=250)
     image = models.ImageField(upload_to='pictures')
 
-    def get_remote_image(self):
+    def save(self, *args, **kwargs):
         if self.image_url and not self.image:
             result = urlretrieve(self.image_url)
             self.image.save(
                 os.path.basename(self.image_url),
                 File(open(result[0], 'rb'))
             )
-            self.save()
+            super(Picture, self).save(*args, **kwargs)
